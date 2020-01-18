@@ -8,20 +8,26 @@ from blog.forms import CommentForm
 from blog.models import Post, Comment, Video
 
 
-class HomeView(TemplateView):
+class AbsView(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['videos'] = Video.objects.filter(is_show=True).order_by('-date_creation')
+        context['header_posts'] = Post.objects.filter(is_header=True)
+        return context
+
+
+class HomeView(AbsView):
     template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all().order_by('-date_creation')
-        context['videos'] = Video.objects.all().order_by('-date_creation')
-
         context['general'] = context['posts'].first()
         context['header_posts'] = Post.objects.filter(is_header=True)
         return context
 
 
-class PostView(TemplateView):
+class PostView(AbsView):
     template_name = 'post.html'
 
     def get_context_data(self, **kwargs):
@@ -31,13 +37,12 @@ class PostView(TemplateView):
         return context
 
 
-class CategoryView(TemplateView):
+class CategoryView(AbsView):
     template_name = 'category.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts'] = Post.objects.filter(category__name=kwargs.get('category')).order_by('-date_creation')
-        context['header_posts'] = Post.objects.filter(is_header=True)
+        context['posts'] = Post.objects.filter(category__name=kwargs.get('name')).order_by('-date_creation')
         return context
 
 
@@ -56,7 +61,7 @@ class CommentView(TemplateView):
         return HttpResponseRedirect(self.request.META['HTTP_REFERER'])
 
 
-class PrivateView(TemplateView):
+class PrivateView(AbsView):
     template_name = 'private.html'
 
     def get_context_data(self, **kwargs):
