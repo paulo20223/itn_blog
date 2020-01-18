@@ -1,3 +1,5 @@
+import re
+
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.db import models
@@ -20,10 +22,11 @@ class Post(models.Model):
     title_description = models.CharField(max_length=1000, verbose_name='Краткое описание поста', null=True, blank=True)
     image = models.ImageField('Фото поста', null=True, blank=True)
     text = RichTextUploadingField(verbose_name="Текст поста")
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
-
-    hidden_post = models.BooleanField(default=False)
-    count_block_in_line = models.IntegerField(default=3)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Категория")
+    hidden_post = models.BooleanField(default=False, verbose_name='Скрыть пост с главной')
+    is_header = models.BooleanField(default=False, verbose_name='Отображать в заголовке')
+    count_block_in_line = models.IntegerField(default=3, verbose_name="Размер блока",
+                                              help_text='Размер поста на главной странице (от 1 до 12')
     date_creation = models.DateTimeField(verbose_name='Дата и время создания', auto_now_add=True)
     date_updated = models.DateTimeField(verbose_name='Дата и время последнего изменения', auto_now=True)
 
@@ -36,6 +39,24 @@ class Post(models.Model):
 
     def col(self):
         return int(12 / self.count_block_in_line)
+
+
+class Video(models.Model):
+    title = models.CharField(max_length=1000, verbose_name='Заголовок')
+    url = models.CharField(max_length=1000, verbose_name='Ссылка')
+    is_show = models.BooleanField(default=True, verbose_name="Отображать в сайдбаре")
+    date_creation = models.DateTimeField(verbose_name='Дата и время создания', auto_now_add=True)
+    date_updated = models.DateTimeField(verbose_name='Дата и время последнего изменения', auto_now=True)
+
+    def filter_url(self):
+        return next(iter(re.findall(r'=(\w{10,15})', self.url)))
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'
+
+    def __str__(self):
+        return f'{self.title} ({self.url})'
 
 
 class Comment(models.Model):

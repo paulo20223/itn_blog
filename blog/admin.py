@@ -15,3 +15,8 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentsAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(Video)
+class VideosAdmin(admin.ModelAdmin):
+    pass

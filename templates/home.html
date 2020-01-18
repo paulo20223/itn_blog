@@ -1,5 +1,21 @@
 {% extends 'base/index.html' %}
-{% block content %}
+
+
+{% block header %}
+
+
+    <div class="container">
+        <div class="row justify-content-center my-2">
+            {% for post in header_posts %}
+
+                <div class="col-auto">
+                    <a class="button text-white" href="{{ post.url_post }}">{{ post.title }}</a>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-center my-2">
             <div class="col-auto">
@@ -11,57 +27,70 @@
         </div>
     </div>
 
+
+{% endblock %}
+{% block content %}
     {% if general %}
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-sm-12R my-2 article">
-                    <a href="{% url 'blog:post' name=general.url_name %}" class="row h-100 p-2">
-                        <div class="item-image" style="
-                                {% if general.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)), url('{{ general.image.url }}');{% endif %}"></div>
-                        <div class="col-12 h3 align-self-center info-text text-center">
-                            <h2 class="mb-0 px-2 bg-white text-dark d-inline-block">{{ general.title }}</h2>
-                            <br>
-                            <h4 class="mb-0 px-2 bg-white text-dark d-inline-block">How register in project?</h4>
-                        </div>
-                    </a>
-                </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-sm-12 my-2 article">
+                <a href="{% url 'blog:post' name=general.url_name %}" class="row h-100 p-2">
+                    <div class="item-image" style="
+                            {% if general.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)), url('{{ general.image.url }}');{% endif %}"></div>
+                    <div class="col-12 h3 align-self-center info-text text-center">
+                        <h2 class="mb-0 px-2 bg-white text-dark d-inline-block">{{ general.title }}</h2>
+                        <br>
+                        <h4 class="mb-0 px-2 bg-white text-dark d-inline-block">How register in project?</h4>
+                    </div>
+                </a>
             </div>
         </div>
     {% endif %}
 
-
-    <div class="container">
-        {% regroup posts by category as posts_by_categorys %}
-        {% for posts_by_category in posts_by_categorys %}
-            {% if posts_by_category.list %}
-                <div class="row mt-4">
-                    <div class="col  text-center">
-                        <a href="/blog"><h3 class="my-2">{{ posts_by_category.grouper.name }}</h3></a>
-                    </div>
+    {% regroup posts by category as posts_by_categorys %}
+    {% for posts_by_category in posts_by_categorys %}
+        {% if posts_by_category.list %}
+            <div class="row mt-4">
+                <div class="col  text-center">
+                    <a href="/blog"><h3 class="my-2">{{ posts_by_category.grouper.name }}</h3></a>
                 </div>
-                <div class="row justify-content-center">
-                    {% for post in posts_by_category.list %}
-                        <a href="{% url 'blog:post' name=post.url_name %}"
-                           class="col-lg-{{ post.col }} col-md-6 col-sm-12 my-2 article">
-                            <div class="row h-100 p-2 justify-content-center">
-                                <div class="col-12 item-image"
-                                     style="{% if post.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)),
-                                         url('{{ post.image.url }}');
-                                     {% endif %}"></div>
-                                <div class="col-12 h3 align-self-center info-text text-center">
-                                    <h4 class="mb-0 px-2 text-dark title-post d-inline mx-2">{{ post.title }}</h4>
-                                    <br>
-                                    {% if post.mini_title %}
-                                        <h6 class="mb-0 px-2 bg-white text-dark d-inline-block title-post">
-                                            H{{ post.title_description }}</h6>{% endif %}
-                                </div>
+            </div>
+            <div class="row">
+                {% for post in posts_by_category.list %}
+                    <a href="{% url 'blog:post' name=post.url_name %}"
+                       class="col-lg-{{ post.col }} col-md-6 col-sm-12 my-2 article">
+                        <div class="row h-100 p-2 justify-content-center">
+                            <div class="col-12 item-image"
+                                 style="{% if post.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)),
+                                     url('{{ post.image.url }}');
+                                 {% endif %}"></div>
+                            <div class="col-12 h3 align-self-center info-text text-center">
+                                <h4 class="mb-0 px-2 text-dark title-post d-inline mx-2">{{ post.title }}</h4>
+                                <br>
+                                {% if post.mini_title %}
+                                    <h6 class="mb-0 px-2 bg-white text-dark d-inline-block title-post">
+                                        H{{ post.title_description }}</h6>{% endif %}
                             </div>
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+    <div class="row">
+        {% for video in videos %}
+            <div class="col-12">
+                <h4 class="text-center">{{ video.title }}</h4>
+                <iframe src="https://www.youtube.com/embed/{{video.filter_url}}" frameborder="0"
+                        allowfullscreen style="width: 100%; height: 100%"></iframe>
+
+            </div>
         {% endfor %}
     </div>
+{% endblock %}
+{% block footer %}
     <div class="container">
         <div class="row justify-content-center my-4">
             <div class="col-auto">
