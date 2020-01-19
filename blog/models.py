@@ -72,3 +72,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.message} ({self.user}). Пост: {self.post}'
+
+
+class Info(models.Model):
+    email = models.EmailField(verbose_name="Еmail")
+    name = models.CharField(max_length=1000, verbose_name='Майл')
+    post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True, blank=True)
+    date_creation = models.DateTimeField(verbose_name='Дата и время создания', auto_now_add=True)
+    date_updated = models.DateTimeField(verbose_name='Дата и время последнего изменения', auto_now=True)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+
+    def __str__(self):
+        return f'{self.message} ({self.user}). Пост: {self.post}'

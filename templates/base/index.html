@@ -58,16 +58,19 @@
         <div class="col-lg-9 col-12">{% block content %}{% endblock %}
         </div>
         <div class="col-lg-3">{% block sidebar %}
-            <div class="row">
                 {% for video in videos %}
-                    <div class="col-12">
-                        <h4 class="text-center">{{ video.title }}</h4>
-                        <iframe src="https://www.youtube.com/embed/{{ video.filter_url }}" frameborder="0"
-                                allowfullscreen style="width: 100%; height: 100%"></iframe>
+                    <div class="d-block mb-4">
+                        <h4 class="text-center mb-1">{{ video.title }}</h4>
+
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item"
+                                    src="https://www.youtube.com/embed/{{ video.filter_url }}" frameborder="0"
+                                    allowfullscreen></iframe>
+                        </div>
+
 
                     </div>
                 {% endfor %}
-            </div>
 
         {% endblock %}</div>
     </div>
@@ -78,8 +81,8 @@
     <div class="container">
         <div class="row justify-content-center my-4">
             <div class="col-auto">
-                <a class="mx-4 h2" href="https://youtube.com" target="_blank"><i class="fab fa-youtube"
-                                                                                 aria-hidden="true"></i>&nbsp;YouTube</a>
+                <a class="mx-4 h2" href="https://youtube.com" target="_blank">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>&nbsp;YouTube</a>
             </div>
             <div class="col-auto">
                 <a class="mx-4 h2" href="https://www.patreon.com/marketpeak" target="_blank"><i class="fab fa-patreon"
