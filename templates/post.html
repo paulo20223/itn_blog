@@ -1,56 +1,33 @@
 {% extends 'base/index.html' %}
 {% block content %}
 
-    <div class="container-fluid p-0 mb-4">
-        <div class="headline">
-            <div class="headline-image"
-                 style="{% if post.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)), url('{{ post.image.url }}');{% endif %} ">
-                <img src="{{ post.image.url }}" style="opacity: 0;" alt="" class="the-cover">
-            </div>
-            <div class="headline-info">
-                <div class="headline-info__title the-title">{{ post.title }}</div>
+    <div class="container-fluid p-0 mb-4 text-center">
+        <h2 class="the-title">{{ post.title }}</h2>
 
-                <div class="clearfix"></div>
-                <div class="headline-info__date">{{ post.date_creation|date:"d.m.Y" }}</div>
-            </div>
-        </div>
     </div>
+
+    {#        <div class="headline">#}
+    {#            <div class="headline-image"#}
+    {#                 style="{% if post.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)), url('{{ post.image.url }}');{% endif %} ">#}
+    {#                <img src="{{ post.image.url }}" style="opacity: 0;" alt="" class="the-cover">#}
+    {#            </div>#}
+    {#            <div class="headline-info">#}
+    {#                <div class="headline-info__title the-title">{{ post.title }}</div>#}
+    {##}
+    {#                <div class="clearfix"></div>#}
+    {#                <div class="headline-info__date">{{ post.date_creation|date:"d.m.Y" }}</div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
     <div class="container mt-4">
         <div class="row bg-white my-5">
-            <div class="col-12 p-4 h4">
+            <div class="col-12 p-4 h4 post-message">
                 {{ post.text|safe }}
             </div>
         </div>
     </div>
 
 
-    <div class="container" style="max-width: 600px">
-        <h4>Комментарии</h4>
-        {% for comment in comments %}
-            <div class="row my-4">
-                <div class="col-12">
-                    <h6 class="m-0">{{ comment.user }} :: {{ comment.date_creation|date:"d.m.Y" }}</h6>
-                    <p>{{ comment.message }}</p>
-                </div>
-
-            </div>
-        {% endfor %}
-
-        {% if user.is_authenticated %}
-            <form action="{% url 'blog:comment' name=post.url_name %}" method="post">
-                {% csrf_token %}
-                <div class="form-group m-0">
-                    {{ request.user.username }}
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" name="message" placeholder="Текс комметария"></textarea>
-                </div>
-                <div class="form-group text-right">
-                    <button type="submit" class="btn btn-dark">Отправить</button>
-                </div>
-            </form>
-        {% endif %}
-
-    </div>
+    {% include 'block/contact_form.html' %}
 
 {% endblock %}

@@ -10,8 +10,9 @@
     {% block links %}{% endblock %}
 </head>
 <body>
+
 <div class="container">
-    <div class="row px-2 justify-content-between align-items-center menu">
+    <div class="row px-2 justify-content-between align-items-center menu h3">
         <div class="col-md-auto logo">
             <a href="/">
                 {% block logo %}
@@ -19,18 +20,21 @@
             </a>
         </div>
         <div class="col-md-auto">
-            <h5 class="my-0"><a href="{% url 'blog:private' %}">Private club</a></h5>
+            <div class="my-0"><a href="{% url 'blog:contact' %}">Contact</a></div>
+        </div>
+        <div class="col-md-auto">
+            <div class="my-0"><a href="{% url 'blog:private' %}">Private club</a></div>
         </div>
     </div>
 </div>
 
 {% block header %}
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center my-2">
             {% for post in header_posts %}
 
-                <div class="col-auto">
+                <div class="col-auto my-1">
                     <a class="btn btn-dark text-white"
                        href="{% url 'blog:post' name=post.url_name %}">{{ post.title }}</a>
                 </div>
@@ -38,39 +42,43 @@
             {% endfor %}
         </div>
     </div>
-    <div class="container">
-        <div class="row justify-content-center my-2">
-            <div class="col-auto">
-                <a class="mx-4" href="https://youtube.com" target="_blank"><i class="fab fa-youtube"
-                                                                              aria-hidden="true"></i>&nbsp;YouTube</a>
-                <a class="mx-4" href="https://www.patreon.com/marketpeak" target="_blank"><i class="fab fa-patreon"
-                                                                                             aria-hidden="true"></i>&nbsp;Patreon</a>
-            </div>
-        </div>
-    </div>
-
-
 
 {% endblock %}
 
 <div class="container-fluid">
     <div class="row justify-content-center px-4">
-        <div class="col-lg-9 col-12">{% block content %}{% endblock %}
+        <div class="col-xl-9 col-lg-8 col-12">{% block content %}{% endblock %}
         </div>
-        <div class="col-lg-3">{% block sidebar %}
-                {% for video in videos %}
-                    <div class="d-block mb-4">
-                        <h4 class="text-center mb-1">{{ video.title }}</h4>
+        <div class="col-xl-3 col-lg-4">{% block sidebar %}
+            <div class="row justify-content-center my-4 h5">
+                <div class="col-auto my-2">
+                    <a class="mx-4" href="{{ settings.youtube_link }}" target="_blank">
+                        <i class="fab fa-youtube" aria-hidden="true"></i>&nbspYouTube</a>
+                </div>
+                <div class="col-auto my-2">
+                    <a class="mx-4" href="{{ settings.telegram_link }}" target="_blank">
+                        <i class="fab fa-telegram" aria-hidden="true"></i>&nbspTelegram</a>
 
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/{{ video.filter_url }}" frameborder="0"
-                                    allowfullscreen></iframe>
-                        </div>
+                </div>
+                <div class="col-auto my-2">
+                    <a class="mx-4" href="{{ settings.patreon_link }}" target="_blank">
+                        <i class="fab fa-patreon" aria-hidden="true"></i>&nbspPatreon</a>
+                </div>
+            </div>
 
+            {% for video in videos %}
+                <div class="d-block mb-4">
+                    <h4 class="text-center mb-1">{{ video.title }}</h4>
 
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item"
+                                src="https://www.youtube.com/embed/{{ video.filter_url }}" frameborder="0"
+                                allowfullscreen></iframe>
                     </div>
-                {% endfor %}
+
+
+                </div>
+            {% endfor %}
 
         {% endblock %}</div>
     </div>
@@ -79,17 +87,22 @@
 
 {% block footer %}
     <div class="container">
-        <div class="row justify-content-center my-4">
+        <div class="row justify-content-center my-4 h4">
             <div class="col-auto">
-                <a class="mx-4 h2" href="https://youtube.com" target="_blank">
+                <a class="mx-4" href="{{ settings.youtube_link }}" target="_blank">
                     <i class="fab fa-youtube" aria-hidden="true"></i>&nbsp;YouTube</a>
             </div>
             <div class="col-auto">
-                <a class="mx-4 h2" href="https://www.patreon.com/marketpeak" target="_blank"><i class="fab fa-patreon"
+                <a class="mx-4" href="{{ settings.patreon_link }}" target="_blank"><i class="fab fa-patreon"
                                                                                                 aria-hidden="true"></i>&nbsp;Patreon</a>
+            </div>
+            <div class="col-auto">
+                <a class="mx-4" href="{{ settings.telegram_link }}" target="_blank"><i class="fab fa-telegram"
+                                                                                                aria-hidden="true"></i>&nbsp;Telegram</a>
             </div>
         </div>
     </div>
+
 {% endblock %}
 
 </body>

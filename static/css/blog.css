@@ -239,3 +239,39 @@ a:hover {
     height: 100%;
     border: 0;
 }
+
+.page-link {
+    color: #3c7ffb;
+}
+
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #3c7ffb;
+    border-color: #3c7ffb;
+}
+
+.post-message a {
+        color: #3c7ffb;
+
+}

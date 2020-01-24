@@ -1,7 +1,9 @@
 import re
 
+import jsonfield as jsonfield
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
+from django.contrib.postgres.forms import JSONField
 from django.db import models
 
 
@@ -76,14 +78,32 @@ class Comment(models.Model):
 
 class Info(models.Model):
     email = models.EmailField(verbose_name="Еmail")
-    name = models.CharField(max_length=1000, verbose_name='Майл')
-    post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True, blank=True)
+    name = models.CharField(max_length=1000, verbose_name='Имя')
+    message = models.TextField(verbose_name="Сообщение")
     date_creation = models.DateTimeField(verbose_name='Дата и время создания', auto_now_add=True)
     date_updated = models.DateTimeField(verbose_name='Дата и время последнего изменения', auto_now=True)
+    dop_info = JSONField()
 
     class Meta:
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
+        verbose_name = 'Обратная связь'
+        verbose_name_plural = 'Обратная связь'
 
     def __str__(self):
-        return f'{self.message} ({self.user}). Пост: {self.post}'
+        return f'{self.email} ({self.name}'
+
+
+settings = (('telegram_link', "Телеграмм ссылка"),
+            ('ref_link', 'Реферальная ссылка'),
+            ('youtube_link', 'Youtube ссылка'),
+            ('patreon_link', 'Patreon ссылка'),
+            ('bot_token', "Telegram. Bot token"),
+            ('bot_chats_id', 'Telegram. id чата'))
+
+
+class Settings(models.Model):
+    name = models.CharField(max_length=1000, choices=settings, verbose_name="Название настройки", unique=True)
+    value = models.CharField(max_length=1000, verbose_name="Название настройки")
+
+    class Meta:
+        verbose_name = 'Настройка'
+        verbose_name_plural = 'Настройки'

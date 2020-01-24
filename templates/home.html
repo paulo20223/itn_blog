@@ -2,31 +2,34 @@
 
 {% block content %}
     {% if general %}
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-sm-12 my-2 article">
-                <a href="{% url 'blog:post' name=general.url_name %}" class="row h-100 p-2">
-                    <div class="item-image" style="
-                            {% if general.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)), url('{{ general.image.url }}');{% endif %}"></div>
-                    <div class="col-12 h3 align-self-center info-text text-center">
-                        <h2 class="mb-0 px-2 bg-white text-dark d-inline-block">{{ general.title }}</h2>
-                        <br>
-                        <h4 class="mb-0 px-2 bg-white text-dark d-inline-block">How register in project?</h4>
+        <div class="row justify-content-center mt-3">
+                <a href="{% url 'blog:post' name=general.url_name %}"
+                   class="col-xl-8 col-sm-12 my-2 article">
+                    <div class="row h-100 p-2 justify-content-center">
+
+                        <div class="col-12 item-image" style="
+                                {% if general.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)), url('{{ general.image.url }}');{% endif %}"></div>
+                        <div class="col-12 h3 align-self-center info-text text-center" style="max-width: 80%">
+                            <h2 class="mb-0 px-2 text-dark title-post d-inline">{{ general.title }}</h2>
+                            <br>
+                            <h4 class="mb-0 px-2 bg-white text-dark d-inline-block title-post">How register in
+                                project?</h4>
+                        </div>
                     </div>
                 </a>
-            </div>
         </div>
     {% endif %}
 
-    {% regroup posts by category as posts_by_categorys %}
-    {% for posts_by_category in posts_by_categorys %}
-        {% if posts_by_category.list %}
-            <div class="row mt-4">
+    {#    {% regroup posts by category.name as posts_by_categorys %}#}
+    {% for category, posts in posts_by_category.items %}
+        {% if posts %}
+            <div class="row">
                 <div class="col  text-center">
-                    <a href="{% url 'blog:category' name=posts_by_category.grouper.name %}"><h3 class="my-2">{{ posts_by_category.grouper.name }}</h3></a>
+                    <a href="{% url 'blog:category' name=category %}"><h3 class="my-2">{{ category }}</h3></a>
                 </div>
             </div>
             <div class="row">
-                {% for post in posts_by_category.list %}
+                {% for post in posts %}
                     <a href="{% url 'blog:post' name=post.url_name %}"
                        class="col-lg-{{ post.col }} col-md-6 col-sm-12 my-2 article">
                         <div class="row h-100 p-2 justify-content-center">
@@ -34,8 +37,8 @@
                                  style="{% if post.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)),
                                      url('{{ post.image.url }}');
                                  {% endif %}"></div>
-                            <div class="col-12 h3 align-self-center info-text text-center">
-                                <h4 class="mb-0 px-2 text-dark title-post d-inline mx-2">{{ post.title }}</h4>
+                            <div class="col-12 h3 align-self-center info-text text-center" style="max-width: 80%">
+                                <h4 class="mb-0 px-2 text-dark title-post d-inline  ">{{ post.title }}</h4>
                                 <br>
                                 {% if post.mini_title %}
                                     <h6 class="mb-0 px-2 bg-white text-dark d-inline-block title-post">
@@ -47,5 +50,8 @@
             </div>
         {% endif %}
     {% endfor %}
+
+        {% include 'block/contact_form.html' %}
+
 {% endblock %}
 

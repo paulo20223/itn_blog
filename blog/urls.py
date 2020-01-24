@@ -9,6 +9,7 @@ urlpatterns = [
     path('post/<slug:name>/', PostView.as_view(), name='post'),
     path('category/<slug:name>/', CategoryView.as_view(), name='category'),
     path('comment/<slug:name>/', CommentView.as_view(), name='comment'),
-    path('private/', PrivateView.as_view(), name='private')
+    path('private/', PrivateView.as_view(), name='private'),
+    path('contact/', ContactView.as_view(), name='contact')
 
 ]

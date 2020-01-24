@@ -1,0 +1,25 @@
+version: "3.5"
+
+services:
+  db:
+    image: postgres
+    container_name: marketpeak-postgres
+    ports:
+      - "5435:5432"
+
+#  web:
+#    build: .
+#    command: python manage.py runserver 0.0.0.0:8002
+#    container_name: marketpeak-web
+#    volumes:
+#      - .:/code
+#    ports:
+#      - "8002:8002"
+#    depends_on:
+#      - db
+#    networks:
+#      - default
+#      -
+#    environment:
+#      DJANGO_SETTINGS_MODULE: "core.settings_dev"
+#      DEBUG: "True"
