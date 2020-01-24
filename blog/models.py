@@ -1,6 +1,4 @@
 import re
-
-import jsonfield as jsonfield
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.contrib.postgres.forms import JSONField
