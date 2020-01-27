@@ -88,7 +88,7 @@ a:hover {
 
 .item-image {
     border-radius: var(--border-radius-primary);
-    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.50)) l
+    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.50))
 }
 
 .container_width_max {

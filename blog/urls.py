@@ -10,6 +10,8 @@ urlpatterns = [
     path('category/<slug:name>/', CategoryView.as_view(), name='category'),
     path('comment/<slug:name>/', CommentView.as_view(), name='comment'),
     path('private/', PrivateView.as_view(), name='private'),
-    path('contact/', ContactView.as_view(), name='contact')
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('quiz/', QuizView.as_view(), name='quiz'),
+    path('quiz/previous', QuizPreviousView.as_view(), name='quiz_previous')
 
 ]

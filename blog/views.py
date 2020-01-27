@@ -120,3 +120,11 @@ class ContactView(AbsView):
             messages.success(request, 'Not valid!')
 
         return HttpResponseRedirect(self.request.META['HTTP_REFERER'])
+
+
+class QuizView(AbsView):
+    template_name = 'quiz.html'
+
+
+class QuizPreviousView(AbsView):
+    template_name = 'quiz_previous.html'
