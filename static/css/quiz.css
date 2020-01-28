@@ -2,6 +2,12 @@ body, html {
     height: 100%;
 }
 
+:root {
+    --color: black;
+    --color-bg-alpha2: #36363633;
+    --gradient--butiful: linear-gradient(to right, rgb(0, 180, 219), rgb(0, 131, 176));
+}
+
 .image-position {
     position: absolute;
     left: 3%;
@@ -195,7 +201,7 @@ form.login a:hover {
 }
 
 .question {
-    background: #212529;
+    background: var(--gradient--butiful);
     padding: 20px;
     color: #fff;
     text-align: center;
@@ -243,7 +249,7 @@ ul li label {
 }
 
 ul li:hover label {
-    color: black;
+    color: var(--gradient--butiful);
 }
 
 ul li .check {
@@ -261,7 +267,8 @@ ul li .check {
 }
 
 ul li:hover .check {
-    border: 5px solid #FFFFFF;
+    border: 5px solid #f5f6f8;
+    background: var(--gradient--butiful);
 }
 
 ul li .check::before {
@@ -373,6 +380,7 @@ body, html {
     background-size: cover;
     background: #ffffff no-repeat 0 40%;
     background-size: cover;
+    min-height: 220px;
 }
 
 .info-text-quiz {
@@ -389,3 +397,42 @@ body, html {
 }
 
 
+svg[data-block] {
+    padding: 0;
+    background: #fff;
+    fill: var(--color);
+    border: 4px solid #fff;
+    border-radius: 50px;
+    height: 30px;
+    -webkit-box-shadow: 0 4px 10px 0 var(--gradient--butiful);
+    box-shadow: 0 4px 10px 0 var(--gradient--butiful);
+}
+
+.bonus__lock-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: unset;
+    z-index: 2;
+    -webkit-transform: translate(40%, -40%);
+    transform: translate(40%, -40%);
+    height: 25px !important;
+}
+
+.button_block {
+    position: relative;
+    height: 100%;
+    border-radius: 5px;
+    cursor: not-allowed;
+}
+
+
+.button_bg {
+    background: linear-gradient(to right, rgb(0, 180, 219), rgb(0, 131, 176));
+    color: white;
+}
+
+.button_bg:hover {
+    background: linear-gradient(to right, rgb(0, 180, 219), rgb(0, 131, 176));
+    color: #e2e3e5;
+}

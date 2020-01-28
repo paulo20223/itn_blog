@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Market Peak blog</title>
     <meta name="description" content="Market Peak">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,15 +32,33 @@
                         <div class="lead my-3"> Answer 3 simple questions to get financing (as an
                             MLM-partner).
                         </div>
-                        <button class="btn btn-dark col-md-12 h4 py-3" id="answer">To Answer</button>
-                        <div class="mt-5">
-                            <div class="my-2 info-text-quiz">BONUS AFTER PASSING THE TEST</div>
-                            <button class="btn btn-dark w-25 py-4" disabled>
-                                <div class="info-text-quiz"
-                                     style="background-color: rgba(0,0,0,0.8); width: max-content">1000$ DEPOSIT
+                        <button class="btn button_bg col-md-12 col-xl-6 h4 py-3" id="answer"><h3 class="m-0">To Answer</h3></button>
+
+                        <div class="my-2 info-text-quiz mt-5">BONUS AFTER PASSING THE TEST</div>
+                        <div class="row mx-0">
+                            <div class="col-auto rounded button_bg"
+                                 style="width: 200px; height: 64px;">
+                                <div class="row align-items-center h-100 justify-content-end">
+                                    <div class="col-auto m-0 text-light" style="background-color: rgba(0,0,0,0.5)">
+                                        1000$ DEPOSIT
+                                    </div>
                                 </div>
-                            </button>
+
+                                <svg data-block="" x="0px" y="0px" viewBox="0 0 299.995 299.995"
+                                     xml:space="preserve"
+                                     class="bonus__lock-icon"><g data-v-c22a59ce=""><g data-v-c22a59ce=""><g data-v-c22a59ce=""><path data-v-c22a59ce="" d="M149.997,161.485c-8.613,0-15.598,6.982-15.598,15.598c0,5.776,3.149,10.807,7.817,13.505v17.341h15.562v-17.341
+          c4.668-2.697,7.817-7.729,7.817-13.505C165.595,168.467,158.611,161.485,149.997,161.485z"></path><path
+                                        data-v-c22a59ce="" d="M150.003,85.849c-13.111,0-23.775,10.665-23.775,23.775v25.319h47.548v-25.319
+          C173.775,96.516,163.111,85.849,150.003,85.849z"></path><path data-v-c22a59ce="" d="M149.995,0.001C67.156,0.001,0,67.159,0,149.998c0,82.837,67.156,149.997,149.995,149.997s150-67.161,150-149.997
+          C299.995,67.159,232.834,0.001,149.995,0.001z M196.085,227.118h-92.173c-9.734,0-17.626-7.892-17.626-17.629v-56.919
+          c0-8.491,6.007-15.582,14.003-17.25v-25.697c0-27.409,22.3-49.711,49.711-49.711c27.409,0,49.709,22.3,49.709,49.711v25.697
+          c7.993,1.673,14,8.759,14,17.25v56.919h0.002C213.711,219.225,205.819,227.118,196.085,227.118z"></path></g></g></g></svg>
+                                <div class="bonus__lock"></div>
+
+                            </div>
+
                         </div>
+
                     </div>
                     <div class="col-12 align-self-end my-4">
                         <div class="made">
@@ -53,7 +73,7 @@
     <div class="container h-100" id="quiz_previous" style="display: none;">
         <div class="row h-100">
             <div class="col-sm-12 my-auto">
-                    {% include 'block/quiz.html' %}
+                {% include 'block/quiz.html' %}
             </div>
         </div>
     </div>
