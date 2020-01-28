@@ -6,6 +6,7 @@ body, html {
     --color: black;
     --color-bg-alpha2: #36363633;
     --gradient--butiful: linear-gradient(to right, rgb(0, 180, 219), rgb(0, 131, 176));
+    --color-alpha2: #46bdf433
 }
 
 .image-position {
@@ -430,6 +431,7 @@ svg[data-block] {
 .button_bg {
     background: linear-gradient(to right, rgb(0, 180, 219), rgb(0, 131, 176));
     color: white;
+
 }
 
 .button_bg:hover {

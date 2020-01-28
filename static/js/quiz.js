@@ -2,25 +2,20 @@ $(document).ready(function () {
     var question_number = 0;
     var q = {
         0: {
-            'Q': 'How do you write "Hello World" in an alert box?',
+            'Q': 'Have you had any experience creating MLM-teams?',
             'pk': 0,
-            'C': ['msg("Hello World");', 'alert("Hello World");', 'alertBox("Hello World");']
+            'C': ['Yes', 'No']
         },
         1: {
-            'Q': 'Have you had any experience creating MLM-teams?',
+            'Q': 'How many active MLM-lines and people are on your team?\n',
             'pk': 1,
-            'C': ['if (i == 5)', 'if i = 5 then', 'if i == 5 then']
+            'C': ['up to 100', 'from 100 to 500', 'from 500']
         },
         2: {
-            'Q': 'How does a FOR loop start?',
+            'Q': 'Have you worked with investment projects (crypto)?',
             'pk': 2,
-            'C': ['for (i = 0; i <= 5)', 'for (i = 0; i <= 5; i++)', 'for i = 1 to 5']
+            'C': ['Yes', 'No']
         },
-        3: {
-            'Q': 'What is the correct way to write a JavaScript array?',
-            'pk': 3,
-            'C': ['var colors = "red", "green", "blue"', 'var colors = (1:"red", 2:"green", 3:"blue")', 'var colors = ["red", "green", "blue"]']
-        }
     };
 
     $("#answer").click(function () {
