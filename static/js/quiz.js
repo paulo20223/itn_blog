@@ -34,8 +34,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".element-animation", function (event) {
         $('#quiz').fadeOut(400);
-
-        let message = $(this).find("label").text();
+        q[question_number].result = $(this).find("label").text();
 
         if ((question_number + 1) === Object.keys(q).length) {
             setTimeout(function () {
@@ -55,18 +54,14 @@ $(document).ready(function () {
             }, 600);
         } else {
             setTimeout(function () {
-                change_quiz(message);
                 question_number++;
-
+                change_quiz();
             }, 600)
         }
 
     });
 
-    function change_quiz(result = null) {
-        if (result) {
-            q[question_number].result = result;
-        }
+    function change_quiz() {
 
         $('#quiz').fadeIn(400);
         $('#question').html(q[question_number].Q);
