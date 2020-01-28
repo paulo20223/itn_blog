@@ -55,12 +55,12 @@ $(document).ready(function () {
             }, 600);
         } else {
             setTimeout(function () {
-                change_quiz(message)
+                change_quiz(message);
+                question_number++;
 
             }, 600)
         }
 
-        question_number++;
     });
 
     function change_quiz(result = null) {
