@@ -43,7 +43,6 @@ $(document).ready(function () {
                 $.each(q, function (i, a) {
                     toAppend += '<tr>';
                     toAppend += '<td>' + (i + 1) + '</td>';
-                    toAppend += '<td>' + a.pk + '</td>';
                     toAppend += '<td>' + a.result + '</td>';
                     toAppend += '</tr>'
                 });
