@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <title>Market Peak blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Market Peak">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,16 +14,16 @@
 <body>
 <div class="container">
     <div class="row px-2 justify-content-between align-items-center menu h3">
-        <div class="col-md-auto logo">
+        <div class="col-md-auto py-2 logo">
             <a href="/">
                 {% block logo %}
                     <img class="logo-img" src="/static/image/logo_market_peak.png" alt="market_peak">{% endblock %}
             </a>
         </div>
-        <div class="col-md-auto">
-            <div class="my-0"><a href="{% url 'blog:contact' %}">Contact</a></div>
+        <div class="col-md-auto py-2">
+            <div class="my-0 py-2"><a href="{% url 'blog:contact' %}">Contact</a></div>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-auto py-2">
             <div class="my-0"><a href="{% url 'blog:private' %}">Private club</a></div>
         </div>
 
