@@ -34,8 +34,7 @@
                        class="col-lg-{{ post.col }} col-md-6 col-sm-12 my-2 article">
                         <div class="row h-100 p-2 justify-content-center">
                             <div class="col-12 item-image"
-                                 style="{% if post.image %}background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.50)),
-                                     url('{{ post.image.url }}');
+                                 style="{% if post.image %}background-image: url('{{ post.image.url }}');
                                  {% endif %}"></div>
                             <div class="col-12 h3 align-self-center info-text text-center" style="max-width: 80%">
                                 <h4 class="mb-0 px-2 text-dark title-post d-inline  ">{{ post.title }}</h4>
