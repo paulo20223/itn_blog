@@ -12,6 +12,28 @@
     {% block links %}{% endblock %}
 </head>
 <body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(57320053, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/57320053" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
 
 <div class="container">
     <div class="row px-2 justify-content-between align-items-center menu h3 text-center">
@@ -62,10 +84,10 @@
                         <i class="fab fa-telegram" aria-hidden="true"></i>&nbspTelegram</a>
 
                 </div>
-{#                <div class="col-auto my-2">#}
-{#                    <a class="mx-4" href="{{ settings.patreon_link }}" target="_blank">#}
-{#                        <i class="fab fa-patreon" aria-hidden="true"></i>&nbspPatreon</a>#}
-{#                </div>#}
+                {#                <div class="col-auto my-2">#}
+                {#                    <a class="mx-4" href="{{ settings.patreon_link }}" target="_blank">#}
+                {#                        <i class="fab fa-patreon" aria-hidden="true"></i>&nbspPatreon</a>#}
+                {#                </div>#}
             </div>
 
             {% for video in videos %}
@@ -94,13 +116,13 @@
                 <a class="mx-4" href="{{ settings.youtube_link }}" target="_blank">
                     <i class="fab fa-youtube" aria-hidden="true"></i>&nbsp;YouTube</a>
             </div>
-{#            <div class="col-auto">#}
-{#                <a class="mx-4" href="{{ settings.patreon_link }}" target="_blank"><i class="fab fa-patreon"#}
-{#                                                                                                aria-hidden="true"></i>&nbsp;Patreon</a>#}
-{#            </div>#}
+            {#            <div class="col-auto">#}
+            {#                <a class="mx-4" href="{{ settings.patreon_link }}" target="_blank"><i class="fab fa-patreon"#}
+            {#                                                                                                aria-hidden="true"></i>&nbsp;Patreon</a>#}
+            {#            </div>#}
             <div class="col-auto">
                 <a class="mx-4" href="{{ settings.telegram_link }}" target="_blank"><i class="fab fa-telegram"
-                                                                                                aria-hidden="true"></i>&nbsp;Telegram</a>
+                                                                                       aria-hidden="true"></i>&nbsp;Telegram</a>
             </div>
         </div>
     </div>
