@@ -48,7 +48,7 @@ class HomeView(AbsView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts_by_category'] = {}
-        context['general'] = Post.objects.first()
+        context['general'] = Post.objects.order_by('-date_creation').first()
         context['header_posts'] = Post.objects.filter(is_header=True)
 
         for post in Post.objects.select_related('category').all().order_by('-date_creation'):
