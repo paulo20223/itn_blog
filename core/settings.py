@@ -194,7 +194,7 @@ CKEDITOR_CONFIGS = {
         ],
         'toolbar': 'YourCustomToolbarConfig',
         'width': '100%',
-        'tabSpaces': 4,
+        'tabSpaces': 5,
         'extraPlugins': ','.join([
             'uploadimage', 'div', 'autolink', 'autoembed', 'embedsemantic', 'autogrow', 'widget', 'lineutils, youtube',
             'clipboard', 'dialog', 'dialogui', 'elementspath'

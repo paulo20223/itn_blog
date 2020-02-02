@@ -14,17 +14,17 @@
 <body>
 
 <div class="container">
-    <div class="row px-2 justify-content-between align-items-center menu h3">
-        <div class="col-md-auto logo">
+    <div class="row px-2 justify-content-between align-items-center menu h3 text-center">
+        <div class="col-md-auto logo py-3">
             <a href="/">
                 {% block logo %}
                     <img class="logo-img" src="/static/image/logo_market_peak.png" alt="market_peak">{% endblock %}
             </a>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-auto py-3">
             <div class="my-0"><a href="{% url 'blog:contact' %}">Contact</a></div>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-auto py-3">
             <div class="my-0"><a href="{% url 'blog:private' %}">Private club</a></div>
         </div>
     </div>
