@@ -168,6 +168,7 @@ CKEDITOR_CONFIGS = {
         'skin': 'moono-lisa',
         'toolbar_Basic': [['Source', '-', 'Bold', 'Italic']],
         'toolbar_YourCustomToolbarConfig': [
+            {'name': 'youtube', 'items': ['Youtube', ]},
             {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
             {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
@@ -195,7 +196,7 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
         'tabSpaces': 4,
         'extraPlugins': ','.join([
-            'uploadimage', 'div', 'autolink', 'autoembed',  'embedsemantic', 'autogrow',  'widget', 'lineutils',
+            'uploadimage', 'div', 'autolink', 'autoembed', 'embedsemantic', 'autogrow', 'widget', 'lineutils, youtube',
             'clipboard', 'dialog', 'dialogui', 'elementspath'
         ]),
     }
