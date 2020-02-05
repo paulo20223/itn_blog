@@ -17,7 +17,7 @@
 
 :root {
     --border-radius-primary: 26px;
-    --border-radius-secondary: 5px
+    --border-radius-secondary: 5px;
 }
 
 body {
@@ -295,4 +295,21 @@ p {
     line-height: 1.5;
 }
 
+:root {
+    --club-title-public-bg: black;
+    --club-title-public-text: white;
+    --club-title-public-bg-min: red;
+
+}
+
+.club-title-public {
+    color: var(--club-title-public-text);
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    text-shadow: 0 0 5px var(--club-title-public-bg-min), 0 0 5px var(--club-title-public-bg-min), 0 0 5px var(--club-title-public-bg), 0 0 10px var(--club-title-public-bg),
+    0 0 10px var(--club-title-public-bg), 0 0 40px var(--club-title-public-bg), 0 0 20px var(--club-title-public-bg), 0 0 20px var(--club-title-public-bg);
+    margin: 0 10px 5px;
+}
 
