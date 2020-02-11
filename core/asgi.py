@@ -1,5 +1,5 @@
 """
-ASGI config for MarketPeak_blog project.
+ASGI config for itn_blog project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

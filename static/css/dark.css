@@ -37,6 +37,11 @@ a {
     color: white;
 }
 
+:root {
+    --club-title-public-bg: black;
+    --club-title-public-text: white;
+}
+
 .club-title h1 {
     font-size: 6vw;
     color: #FFF;
@@ -44,13 +49,17 @@ a {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
-    text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 10px #0287bf, 0 0 10px #0287bf, 0 0 40px #0287bf, 0 0 20px #0287bf, 0 0 20px #0287bf;
+    /*text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 10px #0287bf, 0 0 10px #0287bf, 0 0 40px #0287bf, 0 0 20px #0287bf, 0 0 20px #0287bf;*/
+    text-shadow: 0 0 5px var(--club-title-public-bg-min), 0 0 5px var(--club-title-public-bg-min), 0 0 5px var(--club-title-public-bg), 0 0 10px var(--club-title-public-bg),
+    0 0 10px var(--club-title-public-bg), 0 0 40px var(--club-title-public-bg), 0 0 20px var(--club-title-public-bg), 0 0 20px var(--club-title-public-bg);
     margin: 0 10px 5px;
 }
 
+
 .club-title h1:hover {
     color: #FFF;
-    text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 20px #0287bf, 0 0 30px #0287bf, 0 0 40px #0287bf, 0 0 50px #0287bf, 0 0 50px #0287bf;
+    text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 20px var(--club-title-public-bg-min), 0 0 30px var(--club-title-public-bg-min),
+    0 0 40px var(--club-title-public-bg-min), 0 0 50px var(--club-title-public-bg-min), 0 0 50px var(--club-title-public-bg-min);
 }
 
 

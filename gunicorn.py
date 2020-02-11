@@ -6,4 +6,6 @@ raw_env = [
     'DJANGO_SETTINGS_MODULE=core.settings',
     'DB_HOST=localhost',
     "DB_PASSWORD=&*u:90OP"
+    "DB_PASSWORD=&*u:90OP"
+
 ]

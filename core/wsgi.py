@@ -1,5 +1,5 @@
 """
-WSGI config for MarketPeak_blog project.
+WSGI config for itn_blog project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
