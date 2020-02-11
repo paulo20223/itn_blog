@@ -115,4 +115,4 @@ db.sqlite3
 /auth/migrations/
 /media/*
 venv/
-gunicorn.py
+/gunicorn.py
