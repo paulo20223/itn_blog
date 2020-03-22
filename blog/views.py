@@ -53,7 +53,7 @@ class HomeView(AbsView):
 
         for post in Post.objects.select_related('category').all().order_by('-date_creation'):
             context["posts_by_category"].setdefault(post.category, [])
-            if len(context["posts_by_category"][post.category]) < 5:
+            if len(context["posts_by_category"][post.category]) < 9:
                 context["posts_by_category"][post.category].append(post)
         return context
 
